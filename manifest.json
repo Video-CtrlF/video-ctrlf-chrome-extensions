@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Video Ctrl+F",
+  "description": "AI-based Text Search Service within Youtube Video",
+  "version": "1.0.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "chrome-extension://",
+    "https://jsonplaceholder.typicode.com/"
+  ],
+  "action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "script/content.js"
+      ],
+      "matches": [
+        "https://www.youtube.com/*"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["html/content.html", "css/content.css"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ]
+}
