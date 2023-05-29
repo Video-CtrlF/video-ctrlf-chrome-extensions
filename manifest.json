@@ -11,8 +11,13 @@
     "https://jsonplaceholder.typicode.com/"
   ],
   "action": {
-    "default_icon": "images/icon.png",
-    "default_popup": "html/popup.html"
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "48": "images/ctrl-f-logo-48.png"
+    }
+  },
+  "icons": {
+    "48": "images/ctrl-f-logo-48.png"
   },
   "content_scripts": [
     {
