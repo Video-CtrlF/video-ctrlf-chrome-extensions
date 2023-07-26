@@ -69,6 +69,9 @@ function showData(html, css, captions) {
     console.log("showData()")
     console.log(captions)
 
+    // 유튜브 비디오 엘리먼트
+    const videoElement = document.querySelector("video.video-stream")
+
     // 유튜브 화면에서 오른쪽에 배치 된 컨텐츠
     const rightContents = document.getElementById('secondary')
 
@@ -101,6 +104,11 @@ function showData(html, css, captions) {
         textP.className = 'ctrlf-text-p'
         textP.innerText = caption.text
         textDiv.append(textP)
+
+        // 클릭 이벤트
+        row.addEventListener("click", function () {
+            videoElement.currentTime = caption.start_time
+        })
 
         row.append(timeDiv)
         row.append(textDiv)
