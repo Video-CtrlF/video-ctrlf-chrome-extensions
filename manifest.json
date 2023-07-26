@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "js": [
-        "scripts/content.js"
+        "script/content.js"
       ],
       "css": [
         "css/content.css"
