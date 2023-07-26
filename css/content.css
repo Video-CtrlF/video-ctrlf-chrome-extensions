@@ -1,0 +1,93 @@
+/* 루트 컨테이너 */
+.ctrlf-root-container {
+    display: inline-block;
+    /*height: calc(var(--ytd-watch-flexy-panel-max-height));*/
+    margin: 0 0 24px 0;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    /*padding: 5px;*/
+}
+
+/* Header */
+.ctrlf-header {
+    display: flex;
+    align-items: center;
+    height: 56px;
+}
+.ctrlf-header-title {
+    margin: 0 0 0 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* 스크롤뷰 - 스크립트 목록 */
+.ctrlf-scroll-view {
+    display: block;
+    height: calc(var(--ytd-watch-flexy-panel-max-height) - 96px);
+    background-color: var(--yt-spec-brand-background-solid);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/* 스크롤뷰 - 스크롤바 스타일 (전체) */
+.ctrlf-scroll-view::-webkit-scrollbar {
+    width: 16px;
+}
+/* 스크롤뷰 - 스크롤바 스타일 (thumb 부분) */
+.ctrlf-scroll-view::-webkit-scrollbar-thumb {
+    height: 56px;
+    border-radius: 8px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    background-color: #606060;
+}
+
+/* Footer */
+.ctrlf-footer {
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+.ctrlf-footer-search {
+    margin: 0 0 0 20px;
+    font-size: 2em;
+}
+
+/* div (행) */
+.ctrlf-row {
+    display: flex;
+    min-height: 40px;
+    /*border: 1px solid #000;*/
+}
+
+/* 타임스탬프 div 태그 */
+.ctrlf-time-div {
+    flex: 1; /* Flexbox 속성을 사용하여 첫 번째 열이 나머지 공간을 차지하도록 합니다. */
+    padding: 8px 16px;
+    vertical-align: middle;
+}
+/* 타임스탬프 p 태그 */
+.ctrlf-time-p {
+    margin: 0;
+    padding: 4px 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: blue;
+    text-align: center;
+    background: rgba(135, 206, 250, 0.2);
+    border-radius: 8px;
+}
+/* 스크립트 div 태그 */
+.ctrlf-text-div {
+    /*width: 300px;*/
+    width: 100%;
+    height: 100%;
+    padding: 4px 24px 4px 0;
+    vertical-align: middle;
+    align-items: center; /* 세로 방향 가운데 정렬 */
+}
+/* 스크립트 p 태그 */
+.ctrlf-text-p {
+    margin: 0;
+    font-size: 1.4rem;
+}

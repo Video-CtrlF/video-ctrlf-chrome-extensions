@@ -1,14 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Video Ctrl+F",
-  "description": "AI-based Text Search Service within Youtube Video",
+  "name": "YouTube Video Ctrl+F",
+  "description": "Video Ctrl+F Chrome Extensions in YouTube",
   "version": "1.0.0",
   "permissions": [
     "storage",
     "activeTab",
     "scripting",
-    "chrome-extension://",
-    "https://jsonplaceholder.typicode.com/"
+    "https://jsonplaceholder.typicode.com/",
+    "https://jsonplaceholder2.typicode.com/"
   ],
   "action": {
     "default_popup": "html/popup.html",
@@ -22,7 +22,10 @@
   "content_scripts": [
     {
       "js": [
-        "script/content.js"
+        "scripts/content.js"
+      ],
+      "css": [
+        "css/content.css"
       ],
       "matches": [
         "https://www.youtube.com/*"
@@ -31,7 +34,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["html/content.html", "css/content.css"],
+      "resources": ["html/content.html", "css/content.css", "sample/caption-sample.json"],
       "matches": ["https://www.youtube.com/*"]
     }
   ]
