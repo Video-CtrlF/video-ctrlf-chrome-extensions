@@ -46,18 +46,18 @@
     border-radius: 48px;
 }
 
-
 /*
  * Content
  */
 .ctrlf-content {
+    display: block;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
 .ctrlf-scroll-view {
     display: block;
-    height: calc(var(--ytd-watch-flexy-panel-max-height) - 112px);
+    height: calc(var(--ytd-watch-flexy-panel-max-height) - 160px);
     background-color: var(--yt-spec-brand-background-solid);
     overflow-y: auto;
     overflow-x: hidden;
