@@ -32,6 +32,9 @@ const videoElement = document.querySelector("video.video-stream")
 let youtubeCaptions = []
 let sttCaptions = []
 
+// 검색 유형 라디오 옵션
+let radioOptions
+
 async function loadData() {
     console.log('loadData()')
 
@@ -109,6 +112,22 @@ function showData(html, css, captions) {
         filteredCaptions.forEach(caption => {
             const captionElement = createCaptionItemElement(caption)
             scrollView.appendChild(captionElement)
+        })
+    })
+
+    // 검색 유형 라디오 버튼
+    radioOptions = document.querySelectorAll('.ctrlf-search-type-radio');
+    radioOptions.forEach((radioOption) => {
+        radioOption.addEventListener('click', () => {
+            const selectedOption = document.querySelector('.ctrlf-search-type-radio:checked')
+            console.log("onClick(): " + selectedOption.value)
+            if (selectedOption) {
+                if (selectedOption.value === 'stt') {
+                    console.log("selectedOption.value === 'stt'")
+                } else if (selectedOption.value === 'ocr') {
+                    console.log("selectedOption.value === 'ocr'")
+                }
+            }
         })
     })
 }

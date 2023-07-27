@@ -1,4 +1,6 @@
-/* 루트 컨테이너 */
+/*
+ * 루트 컨테이너
+ */
 .ctrlf-root-container {
     display: inline-block;
     /*height: calc(var(--ytd-watch-flexy-panel-max-height));*/
@@ -9,7 +11,9 @@
     /*padding: 5px;*/
 }
 
-/* Header */
+/*
+ * Header
+ */
 .ctrlf-header {
     display: flex;
     align-items: center;
@@ -21,10 +25,12 @@
     font-weight: bold;
 }
 
-/* 스크롤뷰 - 스크립트 목록 */
+/*
+ * Scroll View - 스크립트 목록
+ */
 .ctrlf-scroll-view {
     display: block;
-    height: calc(var(--ytd-watch-flexy-panel-max-height) - 96px);
+    height: calc(var(--ytd-watch-flexy-panel-max-height) - 112px);
     background-color: var(--yt-spec-brand-background-solid);
     overflow-y: auto;
     overflow-x: hidden;
@@ -40,17 +46,6 @@
     border: 4px solid transparent;
     background-clip: content-box;
     background-color: #606060;
-}
-
-/* Footer */
-.ctrlf-footer {
-    display: flex;
-    align-items: center;
-    height: 48px;
-}
-.ctrlf-footer-search {
-    margin: 0 0 0 20px;
-    font-size: 2em;
 }
 
 /* div (행) */
@@ -98,13 +93,69 @@
     font-size: 1.4rem;
 }
 
+/*
+ * Footer - 검색어 Input
+ */
+.ctrlf-footer-search {
+    display: flex;
+    align-items: center;
+    height: 56px;
+}
 /* 검색어 입력 Input */
 #ctrlf-search-input {
     width: 100%;
-    height: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-    border: 0;
+    height: calc(100% - 18px);
+    margin: 0 16px;
+    padding-left: 12px;
+    padding-right: 12px;
+    /*border: 0;
     background-color: #f0f0f0;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 12px 12px;*/
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+/*
+ * Footer - 검색 유형 라디오 버튼
+ */
+.ctrlf-footer-radio {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 16px;
+}
+.ctrlf-search-type-radio {
+    display: none; /* 기본 라디오 버튼 숨기기 */
+}
+.ctrlf-search-type-radio:checked + label {
+    background-color: #007bff;
+    color: #fff;
+}
+.ctrlf-search-type-label {
+    margin-right: 16px;
+    font-size: 1.2rem;
+}
+.ctrlf-search-type-radio-container {
+    display: flex;
+    flex: 1; /* 남은 공간을 자식 요소들이 채우도록 설정 */
+}
+.ctrlf-search-type-radio-label {
+    flex: 1;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+#ctrlf-search-type-radio-label-stt {
+    margin-right: 4px;
+}
+#ctrlf-search-type-radio-label-ocr {
+    margin-left: 4px;
+}
+.ctrlf-search-type-radio-label:hover {
+    background-color: #f0f0f0;
+    color: #333;
 }
