@@ -1,19 +1,26 @@
 <div id="ctrlf" class="ctrlf-root-container">
     <div class="ctrlf-header">
-        <p class="ctrlf-header-title">동영상 Ctrl + F</p>
+        <label class="ctrlf-header-title">동영상 Ctrl + F</label>
+        <div class="ctrlf-collapsible-button">
+            <div class="ctrlf-collapsible-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M480-380 276-584l16-16 188 188 188-188 16 16-204 204Z"/></svg>
+            </div>
+        </div>
     </div>
-    <div id="ctrlf-scroll-view" class="ctrlf-scroll-view">
-    </div>
-    <div class="ctrlf-footer-search">
-        <input id="ctrlf-search-input" type="text" placeholder="검색어를 입력하세요">
-    </div>
-    <div class="ctrlf-footer-radio">
-        <label class="ctrlf-search-type-label">검색 옵션: </label>
-        <div class="ctrlf-search-type-radio-container">
-            <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-stt" value="stt" checked>
-            <label id="ctrlf-search-type-radio-label-stt" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-stt">음성 인식</label>
-            <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-ocr" value="ocr">
-            <label id="ctrlf-search-type-radio-label-ocr" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-ocr">텍스트 인식</label>
+    <div class="ctrlf-content">
+        <div id="ctrlf-scroll-view" class="ctrlf-scroll-view">
+        </div>
+        <div class="ctrlf-footer-search">
+            <input id="ctrlf-search-input" type="text" placeholder="검색어를 입력하세요">
+        </div>
+        <div class="ctrlf-footer-radio">
+            <label class="ctrlf-search-type-label">검색 옵션: </label>
+            <div class="ctrlf-search-type-radio-container">
+                <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-stt" value="stt" checked>
+                <label id="ctrlf-search-type-radio-label-stt" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-stt">음성 인식</label>
+                <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-ocr" value="ocr">
+                <label id="ctrlf-search-type-radio-label-ocr" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-ocr">텍스트 인식</label>
+            </div>
         </div>
     </div>
 </div>

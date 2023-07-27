@@ -1,10 +1,10 @@
 class Caption {
     constructor(url_id, start_time, end_time, text) {
-        this.url_id = url_id;
-        this.start_time = start_time;
+        this.url_id = url_id
+        this.start_time = start_time
         this.start_time_display = this.formatSecondsToTime(start_time)
-        this.end_time = end_time;
-        this.text = text;
+        this.end_time = end_time
+        this.text = text
     }
 
     formatSecondsToTime(seconds) {
@@ -86,6 +86,10 @@ function showData(html, css, captions) {
     const rootContainer = rightContents.firstElementChild
     const scrollView = document.getElementById('ctrlf-scroll-view')
 
+    // Collapsible 버튼 이벤트
+    const collapsibleButton = document.querySelector('.ctrlf-collapsible-button')
+    collapsibleButton.addEventListener('click', toggleContent)
+
     // 목록 만들기
     for (let i = 0; i < captions.length; i++) {
         const caption = captions[i]
@@ -116,7 +120,7 @@ function showData(html, css, captions) {
     })
 
     // 검색 유형 라디오 버튼
-    radioOptions = document.querySelectorAll('.ctrlf-search-type-radio');
+    radioOptions = document.querySelectorAll('.ctrlf-search-type-radio')
     radioOptions.forEach((radioOption) => {
         radioOption.addEventListener('click', () => {
             const selectedOption = document.querySelector('.ctrlf-search-type-radio:checked')
@@ -130,6 +134,8 @@ function showData(html, css, captions) {
             }
         })
     })
+
+
 }
 
 function createCaptionItemElement(caption) {
@@ -165,11 +171,27 @@ function createCaptionItemElement(caption) {
     return row
 }
 
+function toggleContent() {
+    // 토글 아이콘 회전
+    const collapsibleIcon = document.querySelector('.ctrlf-collapsible-icon')
+    collapsibleIcon.classList.toggle('active')
+
+    // 컨텐츠 펼치기/접기
+    const content = document.querySelector('.ctrlf-content')
+    console.log('content: ' + content)
+    console.log('content.style.maxHeight: ' + content.style.maxHeight)
+    if (content.style.maxHeight){
+        content.style.maxHeight = null
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px"
+    }
+}
+
 function logError(error) {
     console.log(error)
 }
 
-setTimeout(loadData, 1000) // 1초 뒤에 실행
+setTimeout(loadData, 2000) // 1초 뒤에 실행
 // document.addEventListener('DOMContentLoaded', loadData)
 
 console.log('content.js :: Bottom!!')

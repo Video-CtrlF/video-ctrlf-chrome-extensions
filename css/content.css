@@ -17,17 +17,44 @@
 .ctrlf-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 56px;
+    /*background-color: #EAF1FD;
+    border-radius: 12px;*/
 }
 .ctrlf-header-title {
     margin: 0 0 0 20px;
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
 }
+.ctrlf-collapsible-button {
+    width: 48px;
+    height: 48px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+.ctrlf-collapsible-icon {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s ease; /* 회전 효과에 사용할 transition 설정 */
+}
+.ctrlf-collapsible-icon.active {
+    transform: rotate(-180deg); /* 회전할 각도를 설정 */
+}
+.ctrlf-collapsible-icon:hover {
+    background-color: #f0f0f0;
+    border-radius: 48px;
+}
+
 
 /*
- * Scroll View - 스크립트 목록
+ * Content
  */
+.ctrlf-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
 .ctrlf-scroll-view {
     display: block;
     height: calc(var(--ytd-watch-flexy-panel-max-height) - 112px);
@@ -122,7 +149,7 @@
     display: flex;
     align-items: center;
     height: 48px;
-    padding: 0 16px;
+    padding: 0 16px 0 18px;
 }
 .ctrlf-search-type-radio {
     display: none; /* 기본 라디오 버튼 숨기기 */

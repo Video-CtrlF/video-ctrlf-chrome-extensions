@@ -34,7 +34,11 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["html/content.html", "css/content.css", "sample/caption-sample.json"],
+      "resources": [
+        "html/content.html",
+        "css/content.css",
+        "sample/caption-sample.json"
+      ],
       "matches": ["https://www.youtube.com/*"]
     }
   ]
