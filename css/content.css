@@ -2,7 +2,7 @@
  * 루트 컨테이너
  */
 .ctrlf-root-container {
-    display: inline-block;
+    display: block;
     /*height: calc(var(--ytd-watch-flexy-panel-max-height));*/
     margin: 0 0 24px 0;
     width: 100%;
@@ -24,12 +24,12 @@
 }
 .ctrlf-header-title {
     margin: 0 0 0 20px;
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: bold;
 }
 .ctrlf-collapsible-button {
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     padding-right: 8px;
     cursor: pointer;
 }
@@ -57,7 +57,7 @@
 }
 .ctrlf-scroll-view {
     display: block;
-    height: calc(var(--ytd-watch-flexy-panel-max-height) - 160px);
+    height: calc(var(--ytd-watch-flexy-panel-max-height) - 191px);
     background-color: var(--yt-spec-brand-background-solid);
     overflow-y: auto;
     overflow-x: hidden;
@@ -90,9 +90,10 @@
 
 /* 타임스탬프 div 태그 */
 .ctrlf-time-div {
+    display: flex;
     flex: 1; /* Flexbox 속성을 사용하여 첫 번째 열이 나머지 공간을 차지하도록 합니다. */
-    padding: 8px 16px;
-    vertical-align: middle;
+    padding: 0 16px;
+    align-items: center; /* 세로 방향 가운데 정렬 */
 }
 /* 타임스탬프 p 태그 */
 .ctrlf-time-p {
@@ -107,10 +108,9 @@
 }
 /* 스크립트 div 태그 */
 .ctrlf-text-div {
-    /*width: 300px;*/
     width: 100%;
     height: 100%;
-    padding: 4px 24px 4px 0;
+    padding: 8px 16px 8px 0;
     vertical-align: middle;
     align-items: center; /* 세로 방향 가운데 정렬 */
 }
@@ -121,56 +121,58 @@
 }
 
 /*
- * Footer - 검색어 Input
+ * Footer
+ */
+.ctrlf-footer {
+    display: block;
+    padding: 16px 16px;
+}
+/*
+ * Footer - Search
  */
 .ctrlf-footer-search {
-    display: flex;
-    align-items: center;
-    height: 56px;
-}
-/* 검색어 입력 Input */
-#ctrlf-search-input {
+    display: block;
     width: 100%;
-    height: calc(100% - 18px);
-    margin: 0 16px;
-    padding-left: 12px;
-    padding-right: 12px;
-    /*border: 0;
-    background-color: #f0f0f0;
-    border-radius: 0 0 12px 12px;*/
+    height: 36px;
+}
+#ctrlf-search-input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 12px;
     border: 1px solid lightgray;
+    box-sizing : border-box;
     border-radius: 8px;
 }
-
 /*
- * Footer - 검색 유형 라디오 버튼
+ * Footer - Radio
  */
 .ctrlf-footer-radio {
-    display: flex;
-    align-items: center;
-    height: 48px;
-    padding: 0 16px 0 18px;
+    display: block;
+    margin-bottom: 8px;
 }
-.ctrlf-search-type-radio {
-    display: none; /* 기본 라디오 버튼 숨기기 */
+.ctrlf-search-type-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.ctrlf-search-type-radio-container {
+    display: flex;
+}
+.ctrlf-search-type-radio { /* 숨겨진 라디오 버튼 */
+    display: none;
 }
 .ctrlf-search-type-radio:checked + label {
     background-color: #007bff;
     color: #fff;
 }
-.ctrlf-search-type-label {
-    margin-right: 16px;
-    font-size: 1.2rem;
-}
-.ctrlf-search-type-radio-container {
-    display: flex;
-    flex: 1; /* 남은 공간을 자식 요소들이 채우도록 설정 */
-}
 .ctrlf-search-type-radio-label {
     flex: 1;
     cursor: pointer;
     margin: 0;
-    padding: 5px 10px;
+    padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1.2rem;
@@ -186,3 +188,67 @@
     background-color: #f0f0f0;
     color: #333;
 }
+
+/*
+ * Footer - 검색어 Input
+ */
+/*.ctrlf-footer-search {*/
+/*    display: flex;*/
+/*    align-items: end;*/
+/*    height: 56px;*/
+/*}*/
+/*!* 검색어 입력 Input *!*/
+/*#ctrlf-search-input {*/
+/*    width: 100%;*/
+/*    height: calc(100% - 20px);*/
+/*    margin: 0 16px;*/
+/*    padding-left: 12px;*/
+/*    padding-right: 12px;*/
+/*    !*border: 0;*/
+/*    background-color: #f0f0f0;*/
+/*    border-radius: 0 0 12px 12px;*!*/
+/*    border: 1px solid lightgray;*/
+/*    border-radius: 8px;*/
+/*}*/
+
+/*.ctrlf-footer-radio {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    height: 54px;*/
+/*    padding: 0 16px 0 18px;*/
+/*}*/
+/*.ctrlf-search-type-radio {*/
+/*    display: none; !* 기본 라디오 버튼 숨기기 *!*/
+/*}*/
+/*.ctrlf-search-type-radio:checked + label {*/
+/*    background-color: #007bff;*/
+/*    color: #fff;*/
+/*}*/
+/*.ctrlf-search-type-label {*/
+/*    margin-right: 16px;*/
+/*    font-size: 1.2rem;*/
+/*}*/
+/*.ctrlf-search-type-radio-container {*/
+/*    display: flex;*/
+/*    flex: 1; !* 남은 공간을 자식 요소들이 채우도록 설정 *!*/
+/*}*/
+/*.ctrlf-search-type-radio-label {*/
+/*    flex: 1;*/
+/*    cursor: pointer;*/
+/*    margin: 0;*/
+/*    padding: 8px 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 8px;*/
+/*    font-size: 1.2rem;*/
+/*    text-align: center;*/
+/*}*/
+/*#ctrlf-search-type-radio-label-stt {*/
+/*    margin-right: 4px;*/
+/*}*/
+/*#ctrlf-search-type-radio-label-ocr {*/
+/*    margin-left: 4px;*/
+/*}*/
+/*.ctrlf-search-type-radio-label:hover {*/
+/*    background-color: #f0f0f0;*/
+/*    color: #333;*/
+/*}*/
