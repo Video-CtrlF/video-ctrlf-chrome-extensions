@@ -8,23 +8,29 @@ class Caption {
     }
 
     formatSecondsToTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = Math.floor(seconds % 60);
+        const minutes = Math.floor(seconds / 60)
+        const remainingSeconds = Math.floor(seconds % 60)
 
         // 시간과 분을 2자리 숫자로 포맷팅
-        const formattedMinutes = String(minutes).padStart(2, '0');
-        const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+        const formattedMinutes = String(minutes).padStart(2, '0')
+        const formattedSeconds = String(remainingSeconds).padStart(2, '0')
 
-        return `${formattedMinutes}:${formattedSeconds}`;
+        return `${formattedMinutes}:${formattedSeconds}`
     }
 }
+
+console.log('content.js :: Top!!')
 
 const URL = 'https://jsonplaceholder.typicode.com/users/1/posts'
 const CONTENT_CAPTION_SAMPLE_PATH = "sample/caption-sample.json"
 const CONTENT_HTML_PATH = 'html/content.html'
 const CONTENT_CSS_PATH = 'css/content.css'
 
-console.log('content.js :: Top!!')
+// 유튜브 비디오 엘리먼트
+const videoElement = document.querySelector("video.video-stream")
+
+let youtubeCaptions = []
+let sttCaptions = []
 
 async function loadData() {
     console.log('loadData()')
@@ -35,10 +41,10 @@ async function loadData() {
     const jsonObject = await getSampleData()
 
     if (html != null && css != null && jsonObject != null) {
-        const captions = jsonObject.caption.map(item =>
+        youtubeCaptions = jsonObject.caption.map(item =>
             new Caption(item.url_id, item.start_time, item.end_time, item.text)
-        );
-        showData(html, css, captions)
+        )
+        showData(html, css, youtubeCaptions)
     } else {
         console.log(html, css, jsonObject)
     }
@@ -69,9 +75,6 @@ function showData(html, css, captions) {
     console.log("showData()")
     console.log(captions)
 
-    // 유튜브 비디오 엘리먼트
-    const videoElement = document.querySelector("video.video-stream")
-
     // 유튜브 화면에서 오른쪽에 배치 된 컨텐츠
     const rightContents = document.getElementById('secondary')
 
@@ -83,37 +86,64 @@ function showData(html, css, captions) {
     // 목록 만들기
     for (let i = 0; i < captions.length; i++) {
         const caption = captions[i]
+        const captionElement = createCaptionItemElement(caption)
 
-        // Row div
-        const row = document.createElement('div')
-        row.className = 'ctrlf-row'
-
-        // 타임스탬프
-        const timeDiv = document.createElement('div')
-        timeDiv.className = 'ctrlf-time-div'
-        const timeP = document.createElement('p')
-        timeP.className = 'ctrlf-time-p'
-        timeP.innerText = caption.start_time_display
-        timeDiv.append(timeP)
-        row.append(timeDiv)
-
-        // 스크립트
-        const textDiv = document.createElement('div')
-        textDiv.className = 'ctrlf-text-div'
-        const textP = document.createElement('p')
-        textP.className = 'ctrlf-text-p'
-        textP.innerText = caption.text
-        textDiv.append(textP)
-
-        // 클릭 이벤트
-        row.addEventListener("click", function () {
-            videoElement.currentTime = caption.start_time
-        })
-
-        row.append(timeDiv)
-        row.append(textDiv)
-        scrollView.append(row)
+        scrollView.append(captionElement)
     }
+
+    // 검색어 인풋
+    const searchInput = document.getElementById("ctrlf-search-input")
+    searchInput.addEventListener("input", function () {
+        const keyword = searchInput.value.trim().toLowerCase()
+
+        let filteredCaptions
+        if (keyword.length === 0) {
+            filteredCaptions = youtubeCaptions
+        } else {
+            filteredCaptions = youtubeCaptions.filter(caption => {
+                return caption.text.toLowerCase().includes(keyword)
+            })
+        }
+
+        scrollView.innerHTML = ""
+        filteredCaptions.forEach(caption => {
+            const captionElement = createCaptionItemElement(caption)
+            scrollView.appendChild(captionElement)
+        })
+    })
+}
+
+function createCaptionItemElement(caption) {
+    // Row div
+    const row = document.createElement('div')
+    row.className = 'ctrlf-row'
+
+    // 타임스탬프
+    const timeDiv = document.createElement('div')
+    timeDiv.className = 'ctrlf-time-div'
+    const timeP = document.createElement('p')
+    timeP.className = 'ctrlf-time-p'
+    timeP.innerText = caption.start_time_display
+    timeDiv.append(timeP)
+    row.append(timeDiv)
+
+    // 스크립트
+    const textDiv = document.createElement('div')
+    textDiv.className = 'ctrlf-text-div'
+    const textP = document.createElement('p')
+    textP.className = 'ctrlf-text-p'
+    textP.innerText = caption.text
+    textDiv.append(textP)
+
+    // 클릭 이벤트
+    row.addEventListener("click", function () {
+        videoElement.currentTime = caption.start_time
+    })
+
+    row.append(timeDiv)
+    row.append(textDiv)
+
+    return row
 }
 
 function logError(error) {
