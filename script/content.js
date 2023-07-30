@@ -41,7 +41,10 @@ async function showCtrlfContainer() {
 
     await generateCtrlfContainer()
 
+    const spinner = document.querySelector('.ctrlf-spinner')
+    spinner.style.display = 'block'
     const scripts = await requestVideoScripts()
+    spinner.style.display = 'none'
 
     await showCtrlfScripts(scripts)
 }
@@ -91,6 +94,12 @@ async function generateCtrlfContainer() {
     })
 }
 
+function isHideContent() {
+    const collapsibleIcon = document.querySelector('.ctrlf-collapsible-icon')
+    const isActive = collapsibleIcon.classList.contains('active')
+    return !isActive
+}
+
 function toggleContent() {
     // 토글 아이콘 회전
     const collapsibleIcon = document.querySelector('.ctrlf-collapsible-icon')
@@ -108,7 +117,9 @@ function toggleContent() {
 }
 
 async function requestVideoScripts() {
-    console.log('requestVideoScripts()')
+    console.log('requestVideoScripts() 1')
+    await delay(3000)
+    console.log('requestVideoScripts() 2')
 
     // const jsonObject = await getData()
     const jsonObject = await getSampleData()
@@ -157,6 +168,11 @@ function showCtrlfScripts(scripts) {
 
         scrollView.append(captionElement)
     }
+
+    // 토글 버튼이 접혀져있는 경우 다시 펼치기
+    if (isHideContent()) {
+        toggleContent()
+    }
 }
 
 function createCaptionItemElement(caption) {
@@ -192,6 +208,10 @@ function createCaptionItemElement(caption) {
     row.append(textDiv)
 
     return row
+}
+
+function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 function logError(error) {

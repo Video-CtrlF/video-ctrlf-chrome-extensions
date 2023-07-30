@@ -190,66 +190,32 @@
     color: #333;
 }
 
-/*
- * Footer - 검색어 Input
- */
-/*.ctrlf-footer-search {*/
-/*    display: flex;*/
-/*    align-items: end;*/
-/*    height: 56px;*/
-/*}*/
-/*!* 검색어 입력 Input *!*/
-/*#ctrlf-search-input {*/
-/*    width: 100%;*/
-/*    height: calc(100% - 20px);*/
-/*    margin: 0 16px;*/
-/*    padding-left: 12px;*/
-/*    padding-right: 12px;*/
-/*    !*border: 0;*/
-/*    background-color: #f0f0f0;*/
-/*    border-radius: 0 0 12px 12px;*!*/
-/*    border: 1px solid lightgray;*/
-/*    border-radius: 8px;*/
-/*}*/
+.ctrlf-spinner {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    position: relative;
+    animation: spinner-rotate 1s linear infinite
+}
+.ctrlf-spinner::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    animation: prixClipFix 2s linear infinite ;
+}
 
-/*.ctrlf-footer-radio {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    height: 54px;*/
-/*    padding: 0 16px 0 18px;*/
-/*}*/
-/*.ctrlf-search-type-radio {*/
-/*    display: none; !* 기본 라디오 버튼 숨기기 *!*/
-/*}*/
-/*.ctrlf-search-type-radio:checked + label {*/
-/*    background-color: #007bff;*/
-/*    color: #fff;*/
-/*}*/
-/*.ctrlf-search-type-label {*/
-/*    margin-right: 16px;*/
-/*    font-size: 1.2rem;*/
-/*}*/
-/*.ctrlf-search-type-radio-container {*/
-/*    display: flex;*/
-/*    flex: 1; !* 남은 공간을 자식 요소들이 채우도록 설정 *!*/
-/*}*/
-/*.ctrlf-search-type-radio-label {*/
-/*    flex: 1;*/
-/*    cursor: pointer;*/
-/*    margin: 0;*/
-/*    padding: 8px 10px;*/
-/*    border: 1px solid #ccc;*/
-/*    border-radius: 8px;*/
-/*    font-size: 1.2rem;*/
-/*    text-align: center;*/
-/*}*/
-/*#ctrlf-search-type-radio-label-stt {*/
-/*    margin-right: 4px;*/
-/*}*/
-/*#ctrlf-search-type-radio-label-ocr {*/
-/*    margin-left: 4px;*/
-/*}*/
-/*.ctrlf-search-type-radio-label:hover {*/
-/*    background-color: #f0f0f0;*/
-/*    color: #333;*/
-/*}*/
+@keyframes spinner-rotate {
+    100%   {transform: rotate(360deg)}
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}

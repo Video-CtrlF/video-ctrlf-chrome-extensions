@@ -6,56 +6,97 @@
     <link rel="stylesheet" href="../css/content.css">
 </head>
 <body>
-<div id="ctrlf" class="ctrlf-root-container" style="width: 500px">
+<div id="ctrlf" class="ctrlf-root-container" style="width: 800px">
     <div class="ctrlf-header">
-        <p class="ctrlf-header-title">동영상 Ctrl + F</p>
-    </div>
-    <div id="ctrlf-scroll-view" class="ctrlf-scroll-view">
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-        </div>
-        <div class="ctrlf-row">
-            <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-            <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+        <label class="ctrlf-header-title">'Ctrl + F' in Video</label>
+        <div class="ctrlf-spinner"></div>
+        <div class="ctrlf-collapsible-button">
+            <div class="ctrlf-collapsible-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="42" viewBox="0 -960 960 960" width="42"><path d="M480-380 276-584l16-16 188 188 188-188 16 16-204 204Z"/></svg>
+            </div>
         </div>
     </div>
-    <div class="ctrlf-footer">
-        <input id="ctrlf-search-input" type="text" placeholder="검색어를 입력하세요">
+    <div class="ctrlf-content">
+        <div id="ctrlf-scroll-view" class="ctrlf-scroll-view">
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+            <div class="ctrlf-row">
+                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
+                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
+            </div>
+        </div>
+        <div class="ctrlf-footer">
+            <div class="ctrlf-footer-radio">
+                <label class="ctrlf-search-type-label">검색 유형</label>
+                <div class="ctrlf-search-type-radio-container">
+                    <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-stt" value="stt" checked>
+                    <label id="ctrlf-search-type-radio-label-stt" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-stt">음성 인식</label>
+                    <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-ocr" value="ocr">
+                    <label id="ctrlf-search-type-radio-label-ocr" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-ocr">텍스트 인식</label>
+                </div>
+            </div>
+            <div class="ctrlf-footer-search">
+                <input id="ctrlf-search-input" type="text" placeholder="검색어를 입력하세요">
+            </div>
+        </div>
     </div>
 </div>
 <script src="../script/content.js"></script>
+<script>
+    // 로딩 스피너를 활성화하는 함수
+    function showLoader() {
+        const loaderContainer = document.querySelector('.loader-container');
+        loaderContainer.style.display = 'block';
+    }
+
+    // 로딩 스피너를 비활성화하는 함수
+    function hideLoader() {
+        const loaderContainer = document.querySelector('.loader-container');
+        loaderContainer.style.display = 'none';
+    }
+    const startButton = document.querySelector('.ctrlf-collapsible-button'); // 버튼의 id를 적절하게 변경하세요.
+
+    startButton.addEventListener('click', () => {
+        showLoader(); // 로딩 스피너 활성화
+        setTimeout(() => {
+            hideLoader(); // 3초 후에 로딩 스피너 비활성화
+        }, 3000);
+    });
+
+</script>
 </body>
 </html>
