@@ -2,6 +2,7 @@
  * 루트 컨테이너
  */
 .ctrlf-root-container {
+    /*display: none;*/
     display: block;
     /*height: calc(var(--ytd-watch-flexy-panel-max-height));*/
     margin: 0 0 24px 0;

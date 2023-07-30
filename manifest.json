@@ -28,7 +28,7 @@
         "css/content.css"
       ],
       "matches": [
-        "https://www.youtube.com/watch*"
+        "https://www.youtube.com/*"
       ]
     }
   ],
@@ -39,7 +39,7 @@
         "css/content.css",
         "sample/caption-sample.json"
       ],
-      "matches": ["https://www.youtube.com/watch*"]
+      "matches": ["https://www.youtube.com/*"]
     }
   ]
 }
