@@ -235,12 +235,12 @@ function createCaptionItemElement(caption) {
 
 function highlightText(textElement, targetText) {
     const textContent = textElement.textContent
-    const startIndex = textContent.indexOf(targetText)
+    const startIndex = textContent.toLowerCase().indexOf(targetText.toLowerCase())
 
     if (startIndex !== -1) {
         const endIndex = startIndex + targetText.length
         const highlightedText = textContent.slice(0, startIndex) +
-            `<span class="ctrlf-highlight-text">${targetText}</span>` +
+            `<span class="ctrlf-highlight-text">${textContent.slice(startIndex, endIndex)}</span>` +
             textContent.slice(endIndex);
         textElement.innerHTML = highlightedText;
     }
