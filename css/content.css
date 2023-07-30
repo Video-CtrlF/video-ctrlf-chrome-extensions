@@ -190,6 +190,9 @@
     color: #333;
 }
 
+/*
+ * Spinner
+ */
 .ctrlf-spinner {
     display: block;
     width: 28px;
@@ -218,4 +221,11 @@
     50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
     75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
     100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+
+/*
+ * Highlight Text
+ */
+.ctrlf-highlight-text {
+    background-color: yellow;
 }

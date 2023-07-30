@@ -92,6 +92,29 @@ async function generateCtrlfContainer() {
             }
         })
     })
+
+    // 검색어 인풋
+    const searchInput = document.getElementById("ctrlf-search-input")
+    searchInput.addEventListener("input", function () {
+        const keyword = searchInput.value.trim().toLowerCase()
+
+        let filteredCaptions
+        if (keyword.length === 0) {
+            filteredCaptions = youtubeCaptions
+        } else {
+            filteredCaptions = youtubeCaptions.filter(caption => {
+                return caption.text.toLowerCase().includes(keyword)
+            })
+        }
+
+        scrollView.innerHTML = ""
+        filteredCaptions.forEach(caption => {
+            const captionElement = createCaptionItemElement(caption)
+            const captionTextElement = captionElement.querySelector('.ctrlf-text-p')
+            highlightText(captionTextElement, keyword)
+            scrollView.appendChild(captionElement)
+        })
+    })
 }
 
 function isHideContent() {
@@ -208,6 +231,19 @@ function createCaptionItemElement(caption) {
     row.append(textDiv)
 
     return row
+}
+
+function highlightText(textElement, targetText) {
+    const textContent = textElement.textContent
+    const startIndex = textContent.indexOf(targetText)
+
+    if (startIndex !== -1) {
+        const endIndex = startIndex + targetText.length
+        const highlightedText = textContent.slice(0, startIndex) +
+            `<span class="ctrlf-highlight-text">${targetText}</span>` +
+            textContent.slice(endIndex);
+        textElement.innerHTML = highlightedText;
+    }
 }
 
 function delay(ms) {
