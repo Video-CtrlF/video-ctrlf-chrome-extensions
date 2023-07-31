@@ -27,7 +27,8 @@ const CONTENT_HTML_PATH = 'html/content.html'
 const CONTENT_CSS_PATH = 'css/content.css'
 
 const YTD_WATCH_FLEXY_SECONDARY = 'ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy'
-const VIDEO_SELECTOR = '#movie_player > div.html5-video-container > video'
+const VIDEO_CONTAINER = '#movie_player > div.html5-video-container'
+const VIDEO = '#movie_player > div.html5-video-container > video'
 
 // 유튜브 홈페이지가 SPA(Single Page Application) 방식인 문제를 해결하기 위한 변수
 // 유튜브 홈페이지 메인()에서 동영상 재생 페이지로 넘어갔을때를 MutationObserver와 url 변화로 감지함
@@ -38,6 +39,8 @@ let sttCaptions = []
 
 async function showCtrlfContainer() {
     console.log('showCtrlfContainer()')
+
+    addBoundingBoxOnYoutubeVideoContainer()
 
     await generateCtrlfContainer()
 
@@ -55,6 +58,26 @@ function removeCtrlfContainer() {
     if (container != null) {
         container.parentElement.removeChild(container)
     }
+}
+
+function addBoundingBoxOnYoutubeVideoContainer() {
+    const videoContainer = document.querySelector(VIDEO_CONTAINER)
+    const video = document.querySelector(VIDEO)
+    const rect = video.getBoundingClientRect()
+    console.log(rect.width, rect.height, video.currentTime)
+
+    const boundingBox = document.createElement('div')
+    boundingBox.id = 'ctrlf-bounding-box'
+    boundingBox.style.position = 'absolute'
+    boundingBox.style.width = '100px'
+    boundingBox.style.height = '40px'
+    boundingBox.style.border = '4px solid red'
+    // boundingBox.style.backgroundColor = 'rgba(255,255,0,0.7)'
+    boundingBox.style.top = String(rect.height * 0.5) + 'px'
+    boundingBox.style.left = String(rect.width * 0.5) + 'px'
+    boundingBox.style.opacity = '0' // 처음에는 숨김
+
+    videoContainer.append(boundingBox)
 }
 
 async function generateCtrlfContainer() {
@@ -221,16 +244,40 @@ function createCaptionItemElement(caption) {
     textDiv.append(textP)
 
     // 클릭 이벤트
-    row.addEventListener("click", function () {
-        const video = document.querySelector(VIDEO_SELECTOR)
+    row.addEventListener('click', () => {
+        const video = document.querySelector(VIDEO)
         console.log('video=' + video)
         video.currentTime = caption.start_time
+
+        showBoundingBox(caption)
     })
 
     row.append(timeDiv)
     row.append(textDiv)
 
     return row
+}
+
+function showBoundingBox(caption) {
+    console.log(`showBoundingBoxWhenMouseOver(): ${caption.start_time}`)
+    const video = document.querySelector(VIDEO)
+    const videoRect = video.getBoundingClientRect()
+    const boundingBox = document.getElementById('ctrlf-bounding-box')
+    console.log(boundingBox)
+
+    // show
+    boundingBox.style.transition = 'none'
+    boundingBox.style.top = `${videoRect.height * Math.random()}px`
+    boundingBox.style.left = `${videoRect.width * Math.random()}px`
+    boundingBox.style.opacity = '1'
+    console.log(boundingBox)
+
+    setTimeout(() => {
+        // hide
+        boundingBox.style.transition = 'opacity 1s ease-out 2s'
+        boundingBox.style.opacity = '0'
+        console.log(boundingBox)
+    }, 100)
 }
 
 function highlightText(textElement, targetText) {
