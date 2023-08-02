@@ -6,6 +6,7 @@ const API_POST_CAPTIONS = '/api/captions/'
 const API_GET_STATUS = '/api/status'
 const API_POST_AI_INFERENCE = '/api/ai/'
 const API_GET_AI_RESULT = '/api/ai/result'
+const API_DELETE_AI_RESULT = '/api/ai/result'
 
 console.log('service_worker.js')
 
@@ -23,10 +24,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             checkAiInferenceStatus(request.data.url, sendResponse)
             return true
         case 'post-ai-inference':
-            requestAiInferenceVideoSctips(request.data.url, sendResponse)
+            requestAiInferenceVideoScripts(request.data.url, sendResponse)
             return true
         case 'get-ai-result':
             requestVideoScriptsByAi(request.data.url, sendResponse)
+            return true
+        case 'delete-ai-result':
+            requestDeleteAiResult(request.data.url, sendResponse)
             return true
     }
     return false
@@ -99,7 +103,7 @@ function checkAiInferenceStatus(youtubeUrl, sendResponse) {
  * @param {string} youtubeUrl 유튜브 동영상 URL
  * @param {*} sendResponse 콜백 함수
  */
-function requestAiInferenceVideoSctips(youtubeUrl, sendResponse) {
+function requestAiInferenceVideoScripts(youtubeUrl, sendResponse) {
     fetch(makeUrl(BASE_URL, API_POST_AI_INFERENCE), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -125,6 +129,23 @@ function requestVideoScriptsByAi(youtubeUrl, sendResponse) {
     })
         .then(response => response.json())
         .then(json => { sendResponse(json) })
+        .catch(logError)
+}
+
+/**
+ * AI 인퍼런스 결과 삭제 요청
+ *
+ * @param {string} youtubeUrl 유튜브 동영상 URL
+ * @param {*} sendResponse 콜백 함수
+ */
+function requestDeleteAiResult(youtubeUrl, sendResponse) {
+    fetch(makeUrl(BASE_URL, API_DELETE_AI_RESULT), {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'url': youtubeUrl })
+    })
+        .then(response => response.json())
+        .then(json => { sendResponse(json.message) })
         .catch(logError)
 }
 

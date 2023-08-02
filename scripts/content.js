@@ -387,19 +387,31 @@ function loadVideoScripts(youtubeUrl) {
     // 서버에 URL 정보 존재하는지 요청
     requestYoutubeUrlExistence(youtubeUrl, (isExists) => {
         if (isExists) { // 있으면
-            // AI 스크립트 요청
-            requestVideoScriptsByAiModel(youtubeUrl)
+            // AI 인퍼런스 상태 요청
+            requestAiInferenceStatus(youtubeUrl, (status) => {
+                if (status === 'created') { // 유튜브 자막 & 핵심 키워드만 저장된 경우
+                    // 유튜브 자막 요청
+                    requestVideoScriptsByYoutube(youtubeUrl)
+                    // AI 인퍼런스 시작 요청
+                    requestAiInferenceVideoScripts(youtubeUrl)
+                } else if (status === 'process') { // AI 인퍼런스 진행중...
+                    // 유튜브 자막 요청
+                    requestVideoScriptsByYoutube(youtubeUrl)
+                } else if (status === 'success') {
+                    // AI 모델 스크립트 요청
+                    requestVideoScriptsByAiModel(youtubeUrl)
+                } else if (status === 'fail') {
+                    // 유튜브 자막 요청
+                    requestVideoScriptsByYoutube(youtubeUrl)
+                    // AI 결고 삭제 요청
+                    requestDeleteAiResult(youtubeUrl)
+                }
+            })
         } else { // 없으면
             // 유튜브 자막 요청
             requestVideoScriptsByYoutube(youtubeUrl)
-            
-            // AI 인퍼런스 상태 요청
-            requestAiInferenceStatus(youtubeUrl, (status) => {
-                if (status !== 'success') { // 완료가 아니면
-                    // AI 인퍼런스 요청
-                    requestAiInferenceVideoScripts(youtubeUrl)
-                }
-            })
+            // AI 인퍼런스 시작 요청
+            requestAiInferenceVideoScripts(youtubeUrl)
         }
     })
 }
@@ -451,8 +463,8 @@ function requestAiInferenceVideoScripts(youtubeUrl) {
         'type': 'post-ai-inference',
         'data': { 'url': youtubeUrl }
     }
-    sendMessageToSeviceWorker(request, responseJson => {
-        console.log('requestAiInferenceVideoScripts()')
+    sendMessageToSeviceWorker(request, status => {
+        console.log(`requestAiInferenceVideoScripts :: ${status}`)
     })
 }
 
@@ -470,6 +482,19 @@ function requestVideoScriptsByAiModel(youtubeUrl) {
 
         // Ctrl+F 컨테이너 높이 조정
         adjustCtrlfContentHeight()
+    })
+}
+
+/**
+ * 서버에 AI 모델 결과 삭제 요청
+ * */
+function requestDeleteAiResult(youtubeUrl) {
+    const request = {
+        'type': 'delete-ai-result',
+        'data': { 'url': youtubeUrl }
+    }
+    sendMessageToSeviceWorker(request, responseMessage => {
+        console.log(`requestDeleteAiResult :: response=${responseMessage}`)
     })
 }
 
