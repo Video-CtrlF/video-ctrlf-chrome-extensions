@@ -56,19 +56,44 @@
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-.ctrlf-scroll-view {
+.ctrlf-keywords-container {
+    display: flex;
+    padding: 0 20px 8px 20px;
+}
+.ctrlf-keywords-label {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.ctrlf-keywords-sub-container {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap; /* 아이템들이 가로 공간을 넘어갈 경우 다음 줄로 넘어갑니다. */
+    margin-left: 8px;
+}
+.ctrlf-keywords-p {
+    /* margin: 0 8px 0 0; */
+    margin-right: 8px;
+    color: #007bff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+}
+.ctrlf-script-container {
     display: block;
-    height: calc(var(--ytd-watch-flexy-panel-max-height) - 191px);
+    /* height: calc(var(--ytd-watch-flexy-panel-max-height) - 191px); */
+    /* height: calc(var(--ytd-watch-flexy-panel-max-height) - 234px); */
+    /* height: calc(var(--ytd-watch-flexy-panel-max-height) - 268px); */
     background-color: var(--yt-spec-brand-background-solid);
     overflow-y: auto;
     overflow-x: hidden;
 }
 /* 스크롤뷰 - 스크롤바 스타일 (전체) */
-.ctrlf-scroll-view::-webkit-scrollbar {
+.ctrlf-script-container::-webkit-scrollbar {
     width: 16px;
 }
 /* 스크롤뷰 - 스크롤바 스타일 (thumb 부분) */
-.ctrlf-scroll-view::-webkit-scrollbar-thumb {
+.ctrlf-script-container::-webkit-scrollbar-thumb {
     height: 56px;
     border-radius: 8px;
     border: 4px solid transparent;

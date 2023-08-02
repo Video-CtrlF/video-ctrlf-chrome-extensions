@@ -7,8 +7,10 @@
     "storage",
     "activeTab",
     "scripting",
-    "https://jsonplaceholder.typicode.com/",
-    "https://jsonplaceholder2.typicode.com/"
+    "http://43.201.249.208/"
+  ],
+  "host_permissions": [
+    "http://43.201.249.208/"
   ],
   "action": {
     "default_popup": "html/popup.html",
@@ -19,10 +21,14 @@
   "icons": {
     "48": "images/ctrl-f-logo-48.png"
   },
+  "background": {
+    "service_worker": "scripts/service_worker.js",
+    "type": "module"
+  },
   "content_scripts": [
     {
       "js": [
-        "script/content.js"
+        "scripts/content.js"
       ],
       "css": [
         "css/content.css"
@@ -37,7 +43,7 @@
       "resources": [
         "html/content.html",
         "css/content.css",
-        "sample/caption-sample.json"
+        "samples/subak-ssim-90-v2-response.json"
       ],
       "matches": ["https://www.youtube.com/*"]
     }

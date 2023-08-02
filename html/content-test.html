@@ -4,99 +4,131 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/content.css">
+    <style>
+        html {
+            font-size: x-small;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ctrlf-root-container {
+            width: 403px;
+        }
+        .ctrlf-content {
+        }
+        .ctrlf-keywords-container {
+            display: none;
+        }
+        .ctrlf-script-container {
+        }
+        .ctrlf-footer-radio {
+            display: none;
+        }
+        .ctrlf-footer {
+        }
+    </style>
 </head>
 <body>
-<div id="ctrlf" class="ctrlf-root-container" style="width: 800px">
-    <div class="ctrlf-header">
-        <label class="ctrlf-header-title">'Ctrl + F' in Video</label>
-        <div class="ctrlf-spinner"></div>
-        <div class="ctrlf-collapsible-button">
-            <div class="ctrlf-collapsible-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="42" viewBox="0 -960 960 960" width="42"><path d="M480-380 276-584l16-16 188 188 188-188 16 16-204 204Z"/></svg>
-            </div>
-        </div>
-    </div>
-    <div class="ctrlf-content">
-        <div id="ctrlf-scroll-view" class="ctrlf-scroll-view">
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-            <div class="ctrlf-row">
-                <div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div>
-                <div class="ctrlf-text-div"><p class="ctrlf-text-p">안녕하세요<br>동영상 Ctrl+F 서비스 입니다.</p></div>
-            </div>
-        </div>
-        <div class="ctrlf-footer">
-            <div class="ctrlf-footer-radio">
-                <label class="ctrlf-search-type-label">검색 유형</label>
-                <div class="ctrlf-search-type-radio-container">
-                    <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-stt" value="stt" checked>
-                    <label id="ctrlf-search-type-radio-label-stt" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-stt">음성 인식</label>
-                    <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-ocr" value="ocr">
-                    <label id="ctrlf-search-type-radio-label-ocr" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-ocr">텍스트 인식</label>
+    <div id="ctrlf" class="ctrlf-root-container">
+        <div class="ctrlf-header">
+            <label class="ctrlf-header-title">동영상 Ctrl + F</label>
+            <div class="ctrlf-spinner"></div>
+            <div class="ctrlf-collapsible-button">
+                <div class="ctrlf-collapsible-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="42" viewBox="0 -960 960 960" width="42"><path d="M480-380 276-584l16-16 188 188 188-188 16 16-204 204Z"/></svg>
                 </div>
             </div>
-            <div class="ctrlf-footer-search">
-                <input id="ctrlf-search-input" type="text" placeholder="검색어를 입력하세요">
+        </div>
+        <div class="ctrlf-content">
+            <div id="ctrlf-keywords-container" class="ctrlf-keywords-container">
+                <p class="ctrlf-keywords-label">핵심 키워드</p>
+                <div class="ctrlf-keywords-sub-container">
+                   <p class="ctrlf-keywords-p">#핵심</p>
+                   <p class="ctrlf-keywords-p">#키워드</p>
+                   <p class="ctrlf-keywords-p">#핵심</p>
+                   <p class="ctrlf-keywords-p">#키워드</p>
+                   <p class="ctrlf-keywords-p">#핵심</p>
+                   <p class="ctrlf-keywords-p">#키워드</p>
+                   <p class="ctrlf-keywords-p">#핵심</p>
+                   <p class="ctrlf-keywords-p">#키워드</p>
+                   <p class="ctrlf-keywords-p">#핵심</p>
+                   <p class="ctrlf-keywords-p">#키워드</p>
+                </div>
+            </div>
+            <div id="ctrlf-script-container" class="ctrlf-script-container">
+                <div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:00</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">자 오늘은 오랜만에 우리 일상에서 써먹을 수 있는 꿀퀴빈 돼요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:03</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">요즘 인터넷에 보면 맛있는 수박은 꼭지를 보고 골라라.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:06</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">여러 가지가 있는데요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:07</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">근데 아닙니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:08</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">국내 연구 열과 꼭지는 당도와 관계가 없다는 게 밝혀졌습니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:11</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">오히려 사람들의 이런 선입 견뎌문에 꼭지를 상하지 않게 유통시킨이라.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:15</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">600억이라는 쓸 때 없는 비용이 들고 이랬서 진짜 꿀맛 수박은 이렇게 고르세요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:19</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">일단 첫 번째 수박 아래쪽에 있는 100억을 보는 건데요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:22</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이 부분이 1cm 정도로 작은 게 진짜 당도가 높은 수박입니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:26</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">여기에 entire 이유가 있는데요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:27</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이 100고 비 작다는 건 수박 꽃지 떨어진 다음,</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:29</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">나컵 부위가 잘 아무라서 밝게 생장할 때</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:32</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">문제 없이 잘 컸다는 뜻이기 때문입니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:34</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">반대로 100고 비 큰 수박은 수정 당시에 영향 균형이 맞지 않아서 꽃지 비대해지는 등 문제가 있었기 때문이라서</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:40</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">100고 비 작은 게 훨씬 달고 맛있습니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:42</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">바로 두 번째.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:43</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이렇게 끝부분이 살짝 들어간 수박을 고르세요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:45</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">사실 여기서 붙어는 좀 전문적인 영역인데 수박 흐름 아니라 모든 과일은</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:49</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">하루 온도 차이가 커야 더 달고 맛있게 자랍니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:52</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">그리고 이렇게 1개 차가 큰 지역에서 자란 수박은</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:54</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이렇게 끝부분이 살짝 들어간 모양을 띄는데요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:57</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">그래서 여기를 확인해보고 고르면 좋죠.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:59</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이어서 세 번째.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">00:59</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">자 여기 보면 검은색 주문이 가운데 살짝 튀어나온 선 같은 거 보이시나요?</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:03</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이것도 이 수박이 1개 차가 심한 지역에서 자랐다는 뜻입니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:06</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">그래서 이렇게 선이 만져지 정도로 선명한 수박을 진짜 달고 맛있으니까</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:10</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">이런 녀석을 고르면 실패가 없죠.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:12</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">마지막으로 수박 거품이 너무 깨끗한 것보다는</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:14</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">오히려 이렇게 하얀색 가루가 있는 걸 고르세요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:16</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">왜냐하면 수박의 당도가 진짜 높으면</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:18</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">바깥적으로 당미리 올라오기 때문인데요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:20</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">그래서 이런 하얀색 가루 같은 게 껍질 표면까지 무더하게 되는 거죠.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:24</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">자 빠르게 정리하면 일단 100고를 보고</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:26</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">최대한 작은 걸 고른다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:27</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">그리고 이 부분이 살짝이라도 음폭 들어간 게 더 맛있다는 거.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:30</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">마지막으로 거품에는 하얀색 가루가 있고</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:32</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">검정 주문이의 선이 만져지는 걸 고르면 그게 진짜 꼴수わ깁니다.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:36</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">오늘도 조금이나마 유카셨다면 좋아요만 눌러주세요.</p></div></div><div class="ctrlf-row"><div class="ctrlf-time-div"><p class="ctrlf-time-p">01:38</p></div><div class="ctrlf-text-div"><p class="ctrlf-text-p">제작의 큰 힘이 됩니다.</p></div></div>
+            </div>
+            <div class="ctrlf-footer">
+                <div class="ctrlf-footer-radio">
+                    <label class="ctrlf-search-type-label">검색 유형</label>
+                    <div class="ctrlf-search-type-radio-container">
+                        <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-stt" value="stt" checked>
+                        <label id="ctrlf-search-type-radio-label-stt" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-stt">음성 인식</label>
+                        <input type="radio" name="radioOption" class="ctrlf-search-type-radio" id="ctrlf-search-type-ocr" value="ocr">
+                        <label id="ctrlf-search-type-radio-label-ocr" class="ctrlf-search-type-radio-label" for="ctrlf-search-type-ocr">텍스트 인식</label>
+                    </div>
+                </div>
+                <div class="ctrlf-footer-search">
+                    <input id="ctrlf-search-input" type="text" placeholder="검색어를 입력하세요">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src="../script/content.js"></script>
+<script src="../scripts/content.js"></script>
 <script>
-    // 로딩 스피너를 활성화하는 함수
-    function showLoader() {
-        const loaderContainer = document.querySelector('.loader-container');
-        loaderContainer.style.display = 'block';
+    function hideLoadingSpinner() {
+        const spinner = document.querySelector('.ctrlf-spinner')
+        spinner.style.display = 'none'
     }
 
-    // 로딩 스피너를 비활성화하는 함수
-    function hideLoader() {
-        const loaderContainer = document.querySelector('.loader-container');
-        loaderContainer.style.display = 'none';
+    function toggleContent() {
+        // 토글 아이콘 회전
+        const collapsibleIcon = document.querySelector('.ctrlf-collapsible-icon')
+        collapsibleIcon.classList.toggle('active')
+
+        // 컨텐츠 펼치기/접기
+        const content = document.querySelector('.ctrlf-content')
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null
+            
+        } else {
+            // content.style.maxHeight = content.scrollHeight + "px"
+            // content.style.maxHeight = '800px'
+            const rootContainerHeight = 800
+            const headerHeight = document.querySelector('.ctrlf-header')
+                .getBoundingClientRect()
+                .height
+            const keywordsHeight = document.querySelector('.ctrlf-keywords-container')
+                .getBoundingClientRect()
+                .height
+            const footerHeight = document.querySelector('.ctrlf-footer')
+                .getBoundingClientRect()
+                .height
+            const scriptsHeight = rootContainerHeight - headerHeight - keywordsHeight - footerHeight
+            const contentHeight = keywordsHeight + scriptsHeight + footerHeight
+
+            const scriptsContainer = document.querySelector('.ctrlf-script-container')
+            scriptsContainer.style.height = scriptsHeight + 'px'
+
+            console.log(keywordsHeight, scriptsHeight, footerHeight)
+            console.log(contentHeight)
+            
+            content.style.maxHeight = contentHeight + 'px'
+        }
+        
     }
-    const startButton = document.querySelector('.ctrlf-collapsible-button'); // 버튼의 id를 적절하게 변경하세요.
 
-    startButton.addEventListener('click', () => {
-        showLoader(); // 로딩 스피너 활성화
-        setTimeout(() => {
-            hideLoader(); // 3초 후에 로딩 스피너 비활성화
-        }, 3000);
-    });
+    function showScripts() {
+        toggleContent()
+        hideLoadingSpinner()
+    }
 
+    const collapsibleButton = document.querySelector('.ctrlf-collapsible-button')
+    collapsibleButton.addEventListener('click', toggleContent)
+
+    setTimeout(showScripts, 100)
 </script>
 </body>
 </html>
