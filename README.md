@@ -1,6 +1,6 @@
 # Video Ctrl+F Chrome Extensions in YouTube
 
-[Image Capture] 
+<img src="https://github.com/hackathon-AIVLE/secret/blob/main/images/chrome-extensions/ctrlf-underonemin-watermelon.png" width="100%">
 
 ## Summary
 
