@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             checkAiInferenceStatus(request.data.url, sendResponse)
             return true
         case 'post-ai-inference':
-            requestAiInferenceVideoScripts(request.data.url, sendResponse)
+            // requestAiInferenceVideoScripts(request.data.url, sendResponse)
             return true
         case 'get-ai-result':
             requestVideoScriptsByAi(request.data.url, sendResponse)
